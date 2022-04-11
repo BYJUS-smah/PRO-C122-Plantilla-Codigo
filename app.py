@@ -15,20 +15,20 @@ def index():
 @app.route('/predict-emotion', methods=["POST"])
 def predict_emotion():
     
-    # Get Input Text from POST Request
+    # Obtener el texto de entrada del requerimiento POST.
     input_text = request.json.get("text")  
     
     if not input_text:
-        # Response to send if the input_text is undefined
+        # Respuesta a enviar si input_text no está definido.
         response = {
                     "status": "error",
-                    "message": "Please enter some text to predict emotion!"
+                    "message": "¡Por favor, ingresa algún texto para predecir la emoción!"
                   }
         return jsonify(response)
     else:  
         predicted_emotion, predicted_emotion_img_url = predict(input_text)
         
-        # Response to send if the input_text is not undefined
+        # Respuesta a enviar si input_text no esta indefinido.
         response = {
                     "status": "success",
                     "data": {
@@ -37,34 +37,34 @@ def predict_emotion():
                             }  
                    }
 
-        # Send Response         
+        # Enviar respuesta.        
         return jsonify(response)
 
 
 @app.route("/save-entry", methods=["POST"])
 def save_entry():
 
-    # Get Date, Predicted Emotion & Text Enter by the user to save the entry
+    # Obtener datos, predecir emoción y el texto ingresado por el usuario para guardar una entrada.
     date = request.json.get("date")           
     emotion = request.json.get("emotion")
     save_text = request.json.get("text")
 
     save_text = save_text.replace("\n", " ")
 
-    # CSV Entry
+    # Entrada CSV.
     entry = f'"{date}","{save_text}","{emotion}"\n'  
 
     with open("./static/assets/data_files/data_entry.csv", "a") as f:
         f.write(entry)
     return jsonify("Success")
 
-#Write API here
+#Escribir la API aquí.
 
 
-    # Get User Input
+    # Obtener la entrada del usuario aquí.
     
    
-    # Call the method to get bot response
+    # Llamar al método para obtener la respuesta del bot.
     
 
     

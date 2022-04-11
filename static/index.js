@@ -1,5 +1,5 @@
 var date = new Date()
-let display_date = "Date:" + date.toLocaleDateString()
+let display_date = "Fecha:" + date.toLocaleDateString()
 
 let predicted_emotion;
 
@@ -26,15 +26,15 @@ $(function () {
                 predicted_emotion = result.data.predicted_emotion
                 emotion_img_url=result.data.predicted_emotion_img_url
                 
-                //Send the predicted emotion and image url to HTML
+                //Enviar la emoción predecida y el URL de la imagen a HTML.
                 $("#prediction").html(predicted_emotion)
                 $("#emo_img_url").attr('src', emotion_img_url);
 
-                //Set the display 
+                //Establecer la pantalla.
                 $('#prediction').css("display", "");
                 $('#emo_img_url').css("display", "");
 
-               //Enable the Save Button
+               //Activar el botón de guardar.
                 $('#save_button').prop('disabled', false);
             },
             error: function (result) {
@@ -56,7 +56,7 @@ $(function () {
             dataType: "json",
             contentType: 'application/json',
             success: function () {
-                alert("Your entry has been saved successfully!")
+                alert("¡Tu entrada se ha guardado exitosamente!")
                 window.location.reload()
             },
             error: function (result) {
@@ -73,13 +73,13 @@ function displayBot() {
     $('.chatbox__button').click(function () {
         $('.chatbox__chat').toggle()
     });
-    //Start Conversation with Bot
+    //Iniciar la conversación con el Bot.
     askBot()
 }
 
-//askBot function
+//función askBot.
 
-            //Write AJAX call here
+            //Escribir la llamada a AJAX aquí.
             $.ajax({
 
 

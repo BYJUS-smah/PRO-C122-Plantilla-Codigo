@@ -26,7 +26,7 @@ oov_tok = "<OOV>"
 tokenizer = Tokenizer(num_words=vocab_size, oov_token=oov_tok)
 tokenizer.fit_on_texts(training_sentences)
 
-# Make Code and URL Dictionary for different Emotions
+# Hacer código y diccionario de URL para diferentes emociones.
 emo_code_url = {
     "empty": [0, "./static/assets/emoticons/Empty.png"],
     "sadness": [1, "./static/assets/emoticons/Sadness.png"],
